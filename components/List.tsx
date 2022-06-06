@@ -1,19 +1,32 @@
 import * as React from 'react'
+import { useState } from 'react';
 import ListItem from './ListItem'
-import { User } from '../interfaces'
+import LeftMenu from './LeftMenu'
+import { Cottage } from '../interfaces'
+import VisibilitySensor from "react-visibility-sensor";
 
-type Props = {
-  items: User[]
+type ListProps = {
+  items: Cottage[]
 }
 
-const List = ({ items }: Props) => (
-  <ul>
-    {items.map((item) => (
-      <li key={item.id}>
-        <ListItem data={item} />
-      </li>
-    ))}
-  </ul>
-)
+const List = ( {items} : ListProps) => {
+  const [leftMenuActiveItem, setLeftMenuActiveItem] = useState(0);
+  return (
+    <>
+    <LeftMenu items={items} active={leftMenuActiveItem} />
+    <div className='aframe'>
+         {items.map((item:Cottage) => (
+          <VisibilitySensor
+            key={item.id}
+            onChange={() => {setLeftMenuActiveItem(item.id)}}
+            intervalDelay={10}
+            partialVisibility={false}>
+              <ListItem data={item} />
+          </VisibilitySensor>
+        ))}
+    </div>
+    </>    
+  )
+}
 
 export default List

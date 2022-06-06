@@ -4,7 +4,10 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
+export type Cottage = {
   id: number
   name: string
+  description: string
+  images: Array<string>
+  price: number
 }

@@ -1,18 +1,24 @@
 import React from 'react'
-import Link from 'next/link'
+import { Cottage } from '../interfaces'
+import Carousel from './Carousel'
 
-import { User } from '../interfaces'
-
-type Props = {
-  data: User
+type ListItemProps = {
+  data: Cottage
 }
 
-const ListItem = ({ data }: Props) => (
-  <Link href="/users/[id]" as={`/users/${data.id}`}>
-    <a>
-      {data.id}: {data.name}
-    </a>
-  </Link>
-)
+const ListItem = ( {data}: ListItemProps ) => {
+  return (
+    <div className='item' id={'item-'+data.id}>
+      <h2>{data.name}</h2>
+      <Carousel images={data.images} />
+      <div className='description'>
+        {data.description}
+      </div>
+      <div className='price'>
+        <h3>от {data.price} руб./сут</h3> 
+      </div>
+    </div>
+  )
+}
 
 export default ListItem

@@ -1,5 +1,6 @@
 {
   "private": true,
+  "homepage": ".",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -9,12 +10,16 @@
   "dependencies": {
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-slick": "^0.29.0",
+    "react-visibility-sensor": "^5.1.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
-    "typescript": "4.0"
+    "@types/react-slick": "^0.23.8",
+    "typescript": "4.3.2"
   }
 }
