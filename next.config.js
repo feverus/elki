@@ -8,4 +8,6 @@ module.exports = {
   
       return config
     },
+    basePath: '/elki',
+    reactStrictMode: false,
   }

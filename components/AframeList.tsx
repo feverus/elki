@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import AframeListItem from './AframeListItem'
 import LeftMenu from './LeftMenu'
 import { Cottage } from '../interfaces'
-import VisibilitySensor from "react-visibility-sensor"
+import { Waypoint } from 'react-waypoint';
 
 type ListProps = {
 	items: Cottage[]
@@ -20,15 +20,13 @@ const AframeList = ( {items} : ListProps) => {
 		<LeftMenu items={items} active={leftMenuActiveItem} />
 		<div className='aframe'>      
 			{items.map((item:Cottage) => (
-				<VisibilitySensor   
+				<Waypoint   
 				key={item.id}
-				onChange={() => {handle(item.id)}}
-				intervalDelay={10}
-				partialVisibility={false}
-				delayedCall={true}
+				bottomOffset={"70%"}
+				onEnter={() => {handle(item.id)}}
 					>           
-					<AframeListItem data={item} />
-				</VisibilitySensor>
+					<div><AframeListItem data={item} /></div>
+				</Waypoint>
 			))}
 		</div>
 		</>    

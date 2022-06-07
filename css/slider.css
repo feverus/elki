@@ -6,6 +6,7 @@
 .carousel-slider {
     width: 1800px;
     height: var(--slide-height);
+    margin: 0 20px;
 }
 .slick-slide .slide {
     height: var(--slide-height);
@@ -18,7 +19,21 @@
     top: 50%;  
     transform: translateY(-50%);
 }
-   
+
+.next-arrow {
+    position: absolute;
+    top: calc(50% - 10px);
+    z-index: 1000;
+    right: calc(50% + 30px);
+    transform: rotate(180deg);
+    filter: invert(100%);
+}
+.prev-arrow {
+    position: absolute;
+    top: calc(50% - 10px);
+    z-index: 1000;
+    left: -20px;
+}
 @media (max-width: 1400px) {
     :root {
         --slide-height: 400px;

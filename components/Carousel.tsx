@@ -3,10 +3,33 @@ import {useRef, useEffect, useState} from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Arrow from '../svg/arrow.svg';
 
 type CarouselProps = {
     images: Array<string>
-  }
+}
+
+const SampleNextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+        className={"next-arrow"}
+        style={{ ...style }}
+        onClick={onClick}
+        ><Arrow/><Arrow/></div>
+    )
+}
+  
+const SamplePrevArrow = (props) => {
+const { className, style, onClick } = props;
+return (
+    <div
+    className={"prev-arrow"}
+    style={{ ...style }}
+    onClick={onClick}
+    ><Arrow/><Arrow/></div>
+)
+}
 
 const Carousel = ( {images}: CarouselProps ) => {
     const [scrollBlocked, blockScroll] = useState(false);
@@ -17,7 +40,9 @@ const Carousel = ( {images}: CarouselProps ) => {
         slidesToShow: 2,
         slidesToScroll: 1,
         adaptiveHeight: true,
-        className: "carousel-slider"
+        className: "carousel-slider",
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
     }
     const slider = useRef(null)
     const wheel = (e) =>{
