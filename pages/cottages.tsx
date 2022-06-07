@@ -1,6 +1,6 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import Layout from '../components/Layout'
-import List from '../components/List'
+import AframeList from '../components/AframeList'
 import LinkToIndex from '../components/LinkToIndex'
 import getAframe from '../utils/get-aframe'
 import { Cottage } from '../interfaces'
@@ -22,7 +22,7 @@ const CottagesPage = ({ items, error }: Props) => {
   } else {
     return (
       <Layout title="Коттеджи">        
-        <List items={items} />
+        <AframeList items={items} />
         <LinkToIndex/>
       </Layout>
     )
@@ -32,10 +32,11 @@ const CottagesPage = ({ items, error }: Props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const answer = await getAframe()
+  console.log(answer)
   if (typeof answer==='string') {
-    return { props: { error:answer } } 
+    return { props: { error:answer }, revalidate: 60 } 
   } else {
-    return { props: { items:answer } } 
+    return { props: { items:answer }, revalidate: 60 } 
   }
 }
 

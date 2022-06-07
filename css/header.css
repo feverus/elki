@@ -1,0 +1,98 @@
+header {
+    height: 53px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+}
+header .burger, header .close {
+    display: none;
+}
+header nav {
+    margin-top: 20px;
+    max-width: var(--content-width);
+    width: 100%;
+}
+header nav .left-align {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+}
+header nav a {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;    
+    letter-spacing: -0.165px;   
+    color: #000000;  
+
+}
+
+
+
+
+
+
+@media (max-width: 1024px) {    
+    header nav .left-align {
+        max-width: 580px;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 480px) {
+    header nav {
+        transition: all 0.3s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0; 
+        padding: 28px 80px 0px 16px;
+        width: 125px;
+        height: auto;
+        background: #FFF9EE;
+        box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);        
+    }
+    header nav.hidden {
+        left: -250px;
+        top: -100px;
+    }
+    header nav .left-align {
+        display: flex;
+        justify-content: space-between;
+        max-width: 100%;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    header nav a {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;    
+        letter-spacing: -0.165px;   
+        color: #000000;         
+    }
+    header .burger {
+        position: absolute;
+        left: 20px;
+        top: 26px;       
+    }
+    header .close {
+        padding: 0 0 4px 4px;
+    }
+    header .burger, header .close {
+        display: block;
+    }
+    header nav a, header .burger, header .close {
+        margin-bottom: 40px;
+    }
+}

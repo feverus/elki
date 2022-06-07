@@ -5,7 +5,7 @@ const LinkToIndex = () => {
     return (    
         <div className='to-index'>
             <Link href="/">            
-                    <a>На главную</a>            
+                <a>На главную</a>            
             </Link> 
         </div>   
     )

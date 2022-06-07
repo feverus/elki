@@ -1,0 +1,43 @@
+.left-menu {
+    position: fixed;
+    left: 0;
+    top: 20%;
+    width: calc(100% - var(--content-width));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.left-menu h3 {
+    margin: 0 0 23px 0;
+}
+.left-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.left-menu ul li {
+    font-family: 'LatoRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #959595;
+    height: 27px;
+    margin: 0 0 16px 0;
+}
+.left-menu ul li:hover {
+    cursor: pointer;
+}
+.left-menu ul li.active {
+    color: #4F4F4F;
+}
+
+
+
+
+
+
+
+@media (max-width: 480px) {   
+    .left-menu {display: none;}
+}

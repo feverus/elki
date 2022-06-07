@@ -15,16 +15,18 @@ const LeftMenu = ( {items, active} : ListProps) => {
   }
   return (
     <div className='left-menu'>
-      <h3>Коттеджи A-frame</h3>
-      <ul>
-        {items.map((item:Cottage) => (
-          <li key={item.id}
-            onClick = {() => scrollToAnchor(item.id)}
-            className={(item.id===active)?"active":""}> 
-            {item.name}
-          </li>
-        ))}
-      </ul>
+      <div className='item'>      
+          <h3>Коттеджи A-frame</h3>
+          <ul>
+            {items.map((item:Cottage) => (
+              <li key={item.id}
+                onClick = {() => scrollToAnchor(item.id)}
+                className={(item.id===active)?"active":""}> 
+                {item.name}
+              </li>
+            ))}
+          </ul>
+      </div>
     </div>
   )
 }

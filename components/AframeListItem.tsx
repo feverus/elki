@@ -6,10 +6,10 @@ type ListItemProps = {
   data: Cottage
 }
 
-const ListItem = ( {data}: ListItemProps ) => {
+const AframeListItem = ( {data}: ListItemProps ) => {
   return (
     <div className='item' id={'item-'+data.id}>
-      <h2>{data.name}</h2>
+        <h2>{data.name}</h2>
       <Carousel images={data.images} />
       <div className='description'>
         {data.description}
@@ -21,4 +21,4 @@ const ListItem = ( {data}: ListItemProps ) => {
   )
 }
 
-export default ListItem
+export default AframeListItem

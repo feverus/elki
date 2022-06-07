@@ -4,10 +4,10 @@ import LinkToIndex from '../components/LinkToIndex'
 
 const AboutPage = () => (
   <Layout title="О проекте">
-    <h1>О проекте</h1>
-    <p>
-      Раздел в разработке
-    </p>
+    <div className='temporary'>
+      <h1>О проекте</h1>
+      <p>Раздел в разработке</p>
+    </div>
     <LinkToIndex/>
   </Layout>
 )

@@ -1,0 +1,91 @@
+@import url('https://fontlibrary.org//face/lato');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import "slider.css";
+@import "header.css";
+@import "aframe.css";
+@import "left-menu.css";
+
+:root {
+    --content-width: 66%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Lato;    
+	background-color: #ffffff;
+    font-family: 'LatoRegular';
+}
+a {
+    text-decoration: none;
+    font-family: 'LatoRegular';
+    font-style: normal;
+}
+h3 {
+    font-family: 'LatoRegular';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 140%;
+    color: #4F4F4F;       
+}
+.temporary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;   
+}
+.to-index {
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+.to-index a {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 140%;
+    color: #4F4F4F;
+    
+}
+.big-link {
+    font-size: xx-large;
+}
+.main-block {
+    padding-top: 53px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: nowrap;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {    
+    :root {
+        --content-width: 66%;
+    }
+}
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+    :root {
+        --content-width: calc(100% - 60px);
+    }    
+}

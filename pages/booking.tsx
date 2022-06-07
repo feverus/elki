@@ -3,10 +3,10 @@ import LinkToIndex from '../components/LinkToIndex'
 
 const BookingPage = () => (
   <Layout title="Бронирование">
-    <h1>Бронирование</h1>
-    <p>
-      Раздел в разработке
-    </p>
+    <div className='temporary'>
+      <h1>Бронирование</h1>
+      <p>Раздел в разработке</p>
+    </div>
     <LinkToIndex/>
   </Layout>
 )
