@@ -37,7 +37,7 @@ const Carousel = ( {images}: CarouselProps ) => {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 1,
-        adaptiveHeight: true,
+        adaptiveHeight: false,
         className: "carousel-slider",
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
@@ -70,10 +70,18 @@ const Carousel = ( {images}: CarouselProps ) => {
                 {images.map((src, number) => (
                     <div
                     className="slide"
-                    key={number}>                    
-                        <img src={src}/>
+                    key={number}
+                    >
+                        <div
+                        style={{ backgroundImage: "url(" + src +")",
+                        backgroundPosition: 'left center',
+                        backgroundSize: 'calc(100% - 10px) 100%',
+                        backgroundRepeat: 'no-repeat',
+                        width: '100%',
+                        height: '100%', }}
+                        ></div>
                     </div>
-                ))} 
+                ))}
                 </Slider> 
             </div>
         )

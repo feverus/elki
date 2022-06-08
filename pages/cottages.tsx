@@ -34,9 +34,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const answer = await getAframe()
   console.log(answer)
   if (typeof answer==='string') {
-    return { props: { error:answer }, revalidate: 60 } 
+    return { props: { error:answer }, revalidate: 10 } 
   } else {
-    return { props: { items:answer }, revalidate: 60 } 
+    return { props: { items:answer }, revalidate: 10 } 
   }
 }
 
