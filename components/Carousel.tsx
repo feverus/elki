@@ -14,21 +14,19 @@ const SampleNextArrow = (props) => {
     return (
         <div
         className={"next-arrow"}
-        style={{ ...style }}
         onClick={onClick}
         ><Arrow/><Arrow/></div>
     )
 }
   
 const SamplePrevArrow = (props) => {
-const { className, style, onClick } = props;
-return (
-    <div
-    className={"prev-arrow"}
-    style={{ ...style }}
-    onClick={onClick}
-    ><Arrow/><Arrow/></div>
-)
+    const { className, style, onClick } = props;
+    return (
+        <div
+        className={"prev-arrow"}
+        onClick={onClick}
+        ><Arrow/><Arrow/></div>
+    )
 }
 
 const Carousel = ( {images}: CarouselProps ) => {
@@ -63,6 +61,7 @@ const Carousel = ( {images}: CarouselProps ) => {
     if (images.length > 0) {
         return (     
             <div
+            className="carousel-outer"
             onWheel={wheel}
             onMouseEnter={() => blockScroll(true)}
             onMouseLeave={() => blockScroll(false)}

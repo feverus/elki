@@ -19,7 +19,7 @@
     margin: 0 0 6px 0;
 }
 .aframe .item .description {
-    width: 880px;
+    max-width: 880px;
     font-family: 'LatoRegular';
     font-style: normal;
     font-weight: 400;
