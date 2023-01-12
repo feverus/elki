@@ -1,36 +1,42 @@
-import React from 'react'
 import {useRef, useEffect, useState} from 'react'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-import Arrow from '../svg/arrow.svg';
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css" 
+import "slick-carousel/slick/slick-theme.css"
+import Arrow from '../svg/arrow.svg'
 
 type CarouselProps = {
     images: Array<string>
 }
 
 const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, style, onClick } = props
+
     return (
         <div
-        className={"next-arrow"}
-        onClick={onClick}
-        ><Arrow/><Arrow/></div>
+            className={"next-arrow"}
+            onClick={onClick}
+        >
+            <Arrow/><Arrow/>
+        </div>
     )
 }
   
 const SamplePrevArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, style, onClick } = props
+
     return (
         <div
-        className={"prev-arrow"}
-        onClick={onClick}
-        ><Arrow/><Arrow/></div>
+            className={"prev-arrow"}
+            onClick={onClick}
+        >
+            <Arrow/><Arrow/>
+        </div>
     )
 }
 
 const Carousel = ( {images}: CarouselProps ) => {
-    const [scrollBlocked, blockScroll] = useState(false);
+    const [scrollBlocked, blockScroll] = useState(false)
+
     const settings = {
         dots: false,
         infinite: true,
@@ -42,46 +48,47 @@ const Carousel = ( {images}: CarouselProps ) => {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     }
+
     const slider = useRef(null)
-    const wheel = (e) =>{
-        if (slider === null) {
-            return 0
-        }             
+    
+    const wheel = (e: { deltaY: number; }) =>{
+        if (slider === null) return 0
         e.deltaY > 0 ? (slider.current.slickNext()) : (slider.current.slickPrev())     
     }  
+
     useEffect(() => {
-        const cancelWheel = e => slider.current && e.preventDefault();
+        const cancelWheel = (e: { preventDefault: () => any; }) => slider.current && e.preventDefault();
         document.body.addEventListener('wheel', cancelWheel, {passive:false});
         (scrollBlocked)? document.body.addEventListener('wheel', cancelWheel, {passive:false}) : document.body.removeEventListener('wheel', cancelWheel)
         return () => document.body.removeEventListener('wheel', cancelWheel)
-    }, [scrollBlocked])    
-    if (images.length === 2) {
-        images.push(images[0])
-    }
+    }, [scrollBlocked]) 
+
+    if (images.length === 2) images.push(images[0])
+
     if (images.length > 0) {
         return (     
             <div
-            className="carousel-outer"
-            onWheel={wheel}
-            onMouseEnter={() => blockScroll(true)}
-            onMouseLeave={() => blockScroll(false)}
+                className="carousel-outer"
+                onWheel={wheel}
+                onMouseEnter={() => blockScroll(true)}
+                onMouseLeave={() => blockScroll(false)}
             >
                 <Slider {...settings} ref={slider} >
-                {images.map((src, number) => (
-                    <div
-                    className="slide"
-                    key={number}
-                    >
+                    {images.map((src) => (
                         <div
-                        style={{ backgroundImage: "url(" + src +")",
-                        backgroundPosition: 'left center',
-                        backgroundSize: 'calc(100% - 10px) 100%',
-                        backgroundRepeat: 'no-repeat',
-                        width: '100%',
-                        height: '100%', }}
-                        ></div>
-                    </div>
-                ))}
+                            className="slide"
+                            key={src}
+                        >
+                            <div
+                                style={{ backgroundImage: "url(" + src +")",
+                                backgroundPosition: 'left center',
+                                backgroundSize: 'calc(100% - 10px) 100%',
+                                backgroundRepeat: 'no-repeat',
+                                width: '100%',
+                                height: '100%', }}
+                            ></div>
+                        </div>
+                    ))}
                 </Slider> 
             </div>
         )
